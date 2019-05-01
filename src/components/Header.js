@@ -1,8 +1,9 @@
 import React from 'react';
 import './Header.css';
 
-const Header = ({onShowNewItem, numItems, numChecked, showNewItemForm}) => {
+const Header = ({ onShowNewItem, numItems, numChecked, showNewItemForm }) => {
   const buttonClasses = `ui primary button ${!showNewItemForm ? '' : 'disabled'}`;
+
   return(
     <div className='page-header'>
       <h1 className="ui header">My ToDo List</h1>
