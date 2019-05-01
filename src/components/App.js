@@ -7,7 +7,9 @@ import './App.css';
 class App extends React.Component {
   state = {
     items: [],
-    showNewItem: false
+    showNewItem: false,
+    numItems: 0,
+    numChecked: 0
   };
 
   onShowNewItem = () => {
@@ -21,7 +23,19 @@ class App extends React.Component {
   onCreateItem = item => {
     this.setState({
       items: [...this.state.items, item],
-      showNewItem: false
+      showNewItem: false,
+      numItems: this.state.numItems + 1
+    });
+  }
+
+  onToggleChecked = item => {
+    console.log(`toggleChecked: ${item.title} = ${item.checked}`);
+  }
+
+  onDeleteItem = item => {
+    this.setState({
+      items: this.state.items.filter(i => i !== item),
+      numItems: this.state.numItems - 1
     });
   }
 
@@ -30,7 +44,11 @@ class App extends React.Component {
 
     return (
       <div className="ui container text">
-        <Header onShowNewItem={this.onShowNewItem} />
+        <Header
+          numItems={this.state.numItems}
+          numChecked={this.state.numChecked}
+          onShowNewItem={this.onShowNewItem}
+        />
         {this.state.showNewItem &&
           <NewItem
             isVisible={this.state.showNewItem}
@@ -38,7 +56,11 @@ class App extends React.Component {
             onCancel={this.onCloseNewItem}
           />
         }
-        <ToDoList items={this.state.items}/>
+        <ToDoList
+          items={this.state.items}
+          onToggleChecked={this.onToggleChecked}
+          onDeleteItem={this.onDeleteItem}
+        />
       </div>
     );
   }

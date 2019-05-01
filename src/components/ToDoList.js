@@ -5,7 +5,12 @@ import './ToDoList.css';
 class ToDoList extends React.Component {
   renderList() {
     return this.props.items.map((item, idx) => {
-      return <ToDoItem item={item} key={idx}/>;
+      return <ToDoItem
+        item={item}
+        key={idx}
+        onToggleChecked={this.props.onToggleChecked}
+        onDeleteItem={this.props.onDeleteItem}
+      />;
     });
   }
 
