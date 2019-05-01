@@ -1,7 +1,9 @@
 import React from 'react';
 import './NewItem.css';
 
+// new item input form component
 class NewItem extends React.Component {
+  // initialize form state
   state = {
     title: '',
     description: '',
@@ -10,11 +12,13 @@ class NewItem extends React.Component {
     isValid: true
   };
 
+  // event handler for cancel button on form
   onFormCancel = (event) => {
     event.preventDefault();
     this.props.onCancel();
   }
 
+  // event handler for submit button on form
   onFormSubmit = (event) => {
     event.preventDefault();
 
@@ -25,6 +29,7 @@ class NewItem extends React.Component {
     }
   }
 
+  // execute onSubmit callback with values for new item
   submitForm() {
     this.props.onSubmit({
       title: this.state.title,
@@ -34,21 +39,25 @@ class NewItem extends React.Component {
     });
   }
 
+  // display validation error message
   showMessage() {
     this.setState({ isValid: false });
     this.titleInput.focus();
   }
 
+  // convert default date string to mm/dd/yyyy
   setDate = (dateString) => {
-    const temp = dateString.split('-');
-    this.setState({ date: `${temp[1]}/${temp[2]}/${temp[0]}` });
+    const values = dateString.split('-');
+    this.setState({ date: `${values[1]}/${values[2]}/${values[0]}` });
   };
 
+  // set focus on title input when form is displayed
   componentDidMount() {
     this.titleInput.focus();
   }
 
   render() {
+    // conditionally define message classes based on whether form is valid
     const msgClasses = `ui icon warning message ${!this.state.isValid ? '' : 'hidden' }`;
 
     return (

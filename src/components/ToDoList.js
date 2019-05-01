@@ -2,8 +2,9 @@ import React from 'react';
 import ToDoItem from './ToDoItem';
 import './ToDoList.css';
 
+// toDo list functional component
 const ToDoList = ({ items, onToggleItem, onDeleteItem }) => {
-
+  // generate list of ToDoItem components
   const itemList = items.map((item, idx) => {
     return <ToDoItem
       item={item}

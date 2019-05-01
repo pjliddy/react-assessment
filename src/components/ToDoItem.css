@@ -6,6 +6,15 @@
   font-weight: normal;
 }
 
+.todo-item .content .header .title {
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.todo-item .content .description {
+  color: #666666;
+}
+
 @media only screen and (min-width: 641px) {
   .todo-item.item > .content > .header {
     display: flex;

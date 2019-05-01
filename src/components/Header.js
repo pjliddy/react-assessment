@@ -1,7 +1,9 @@
 import React from 'react';
 import './Header.css';
 
+// page header functional component
 const Header = ({ onShowItemForm, numItems, numChecked, showItemForm }) => {
+  // conditionally define button classes based on whether itemForm is visible
   const buttonClasses = `ui primary button ${!showItemForm ? '' : 'disabled'}`;
 
   return(
