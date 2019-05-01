@@ -49,7 +49,7 @@ class NewItem extends React.Component {
   }
 
   render() {
-    const msgClasses = `ui warning message ${!this.state.isValid ? '' : 'hidden' }`;
+    const msgClasses = `ui icon warning message ${!this.state.isValid ? '' : 'hidden' }`;
 
     return (
       <div className="new-item">
@@ -92,8 +92,15 @@ class NewItem extends React.Component {
           </form>
 
           <div className={msgClasses}>
-            <i className="icon large bell outline"></i>
-            Your ToDo Item has to have a title. How else are you going to know what to do?
+            <i className="icon big frown outline"></i>
+            <div className="content">
+              <div className="header">
+                Your ToDo Item has to have a title.
+              </div>
+              <p>
+                How else are you going to know what you need to do?
+              </p>
+            </div>
           </div>
         </div>
       </div>
