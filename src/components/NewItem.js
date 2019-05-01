@@ -10,6 +10,11 @@ class NewItem extends React.Component {
     isValid: true
   };
 
+  onFormCancel = (event) => {
+    event.preventDefault();
+    this.props.onCancel();
+  }
+
   onFormSubmit = (event) => {
     event.preventDefault();
 
@@ -34,10 +39,10 @@ class NewItem extends React.Component {
     this.titleInput.focus();
   }
 
-  onFormCancel = (event) => {
-    event.preventDefault();
-    this.props.onCancel();
-  }
+  setDate = (dateString) => {
+    const temp = dateString.split('-');
+    this.setState({ date: `${temp[1]}/${temp[2]}/${temp[0]}` });
+  };
 
   componentDidMount() {
     this.titleInput.focus();
@@ -65,7 +70,7 @@ class NewItem extends React.Component {
               <div className="five wide field">
                 <label htmlFor="date">Due Date</label>
                 <input type="date" id="date" placeholder="Date..."
-                  onChange={(e) => this.setState({date: e.target.value})}/>
+                  onChange={(e) => this.setDate(e.target.value)}/>
               </div>
             </div>
 

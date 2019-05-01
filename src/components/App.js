@@ -9,34 +9,22 @@ class App extends React.Component {
     items: [],
     numItems: 0,
     numChecked: 0,
-    showNewItemForm: false
+    showItemForm: false
   };
 
-  onShowNewItem = () => {
-    this.setState({ showNewItemForm: true });
+  onShowItemForm = () => {
+    this.setState({ showItemForm: true });
   }
 
-  onCloseNewItem = () => {
-    this.setState({ showNewItemForm: false });
+  onCloseItemForm = () => {
+    this.setState({ showItemForm: false });
   }
 
   onCreateItem = item => {
     this.setState({
       items: [...this.state.items, item],
-      showNewItemForm: false,
+      showItemForm: false,
       numItems: this.state.numItems + 1
-    });
-  }
-
-  onToggleChecked = item => {
-    const copy = Object.assign({}, item);
-    copy.checked = !copy.checked;
-
-    this.setState(state => {
-      return {
-        items: state.items.map(e => e === item ? copy : e),
-        numChecked: this.state.numChecked + (!copy.checked ? -1 : 1)
-      };
     });
   }
 
@@ -48,25 +36,37 @@ class App extends React.Component {
     });
   }
 
+  onToggleItem = item => {
+    const copy = Object.assign({}, item);
+    copy.checked = !copy.checked;
+
+    this.setState(state => {
+      return {
+        items: state.items.map(e => e === item ? copy : e),
+        numChecked: this.state.numChecked + (!copy.checked ? -1 : 1)
+      };
+    });
+  }
+
   render() {
     return (
       <div className="ui container text">
         <Header
           numItems={this.state.numItems}
           numChecked={this.state.numChecked}
-          showNewItemForm={this.state.showNewItemForm}
-          onShowNewItem={this.onShowNewItem}
+          showItemForm={this.state.showItemForm}
+          onShowItemForm={this.onShowItemForm}
         />
-        {this.state.showNewItemForm &&
+        {this.state.showItemForm &&
           <NewItem
-            isVisible={this.state.showNewItemForm}
+            isVisible={this.state.showItemForm}
             onSubmit={this.onCreateItem}
-            onCancel={this.onCloseNewItem}
+            onCancel={this.onCloseItemForm}
           />
         }
         <ToDoList
           items={this.state.items}
-          onToggleChecked={this.onToggleChecked}
+          onToggleItem={this.onToggleItem}
           onDeleteItem={this.onDeleteItem}
         />
       </div>

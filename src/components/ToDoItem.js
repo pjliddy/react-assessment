@@ -3,7 +3,7 @@ import './ToDoItem.css';
 
 class ToDoItem extends React.Component {
   toggleCheck = () => {
-    this.props.onToggleChecked(this.props.item);
+    this.props.onToggleItem(this.props.item);
   }
 
   deleteItem = () => {

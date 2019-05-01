@@ -1,8 +1,8 @@
 import React from 'react';
 import './Header.css';
 
-const Header = ({ onShowNewItem, numItems, numChecked, showNewItemForm }) => {
-  const buttonClasses = `ui primary button ${!showNewItemForm ? '' : 'disabled'}`;
+const Header = ({ onShowItemForm, numItems, numChecked, showItemForm }) => {
+  const buttonClasses = `ui primary button ${!showItemForm ? '' : 'disabled'}`;
 
   return(
     <div className='page-header'>
@@ -12,7 +12,7 @@ const Header = ({ onShowNewItem, numItems, numChecked, showNewItemForm }) => {
             <span><strong>Total Items: </strong>{numItems}</span>
             <span><strong>Items Left To Do: </strong>{numChecked}</span>
         </div>
-        <button className={buttonClasses} onClick={onShowNewItem}>
+        <button className={buttonClasses} onClick={onShowItemForm}>
           <i className="icon plus"></i>
           New Item
         </button>
