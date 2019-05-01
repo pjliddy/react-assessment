@@ -38,7 +38,7 @@ class App extends React.Component {
             onCancel={this.onCloseNewItem}
           />
         }
-        <ToDoList />
+        <ToDoList items={this.state.items}/>
       </div>
     );
   }
