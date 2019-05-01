@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import PageHeader from './PageHeader';
 import NewItem from './NewItem';
 import ToDoList from './ToDoList';
 import './App.scss';
@@ -60,7 +60,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container text">
-        <Header
+        <PageHeader
           numItems={this.state.numItems}
           numChecked={this.state.numChecked}
           showItemForm={this.state.showItemForm}

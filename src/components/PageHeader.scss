@@ -11,6 +11,10 @@
     width: 100%;
   }
 
+  .header-data-label {
+    font-weight: bold;
+  }
+
   .toolbar {
     align-items: center;
     display: flex;
@@ -21,21 +25,19 @@
       white-space: nowrap;
     }
   }
-}
 
-@media only screen and (max-width: $screen-sm-max) {
-  .page-header .header-data span {
-    display: block;
+  @media only screen and (max-width: $screen-sm-max) {
+    .header-data span {
+      display: block;
+    }
   }
-}
 
-@media only screen and (min-width: $screen-md-min) {
-  .page-header .header-data {
-    span {
+  @media only screen and (min-width: $screen-md-min) {
+    .header-data-item {
       display: inline-block;
       white-space: nowrap;
 
-      + span::before {
+      + .header-data-item::before {
         content: '|';
         margin: 0 $spacing-text;
       }
