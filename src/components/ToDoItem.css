@@ -9,6 +9,7 @@
 @media only screen and (min-width: 641px) {
   .todo-item.item > .content > .header {
     display: flex;
+    justify-content: space-between;
     width: 100%;
   }
 

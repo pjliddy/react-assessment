@@ -14,7 +14,7 @@ class NewItem extends React.Component {
     this.props.onSubmit({
       title: this.state.title,
       description: this.state.description,
-      data: this.state.data,
+      date: this.state.date,
       checked: this.state.checked
     });
   }
