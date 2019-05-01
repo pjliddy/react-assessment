@@ -1,5 +1,5 @@
 import React from 'react';
-import './ToDoItem.css';
+import './ToDoItem.scss';
 
 // individual to do item component
 class ToDoItem extends React.Component {

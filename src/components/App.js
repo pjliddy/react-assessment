@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import NewItem from './NewItem';
 import ToDoList from './ToDoList';
-import './App.css';
+import './App.scss';
 
 // top-level App component
 class App extends React.Component {

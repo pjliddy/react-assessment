@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.css';
+import './Header.scss';
 
 // page header functional component
 const Header = ({ onShowItemForm, numItems, numChecked, showItemForm }) => {

@@ -1,0 +1,18 @@
+@import './variables';
+
+.new-item {
+  margin-bottom: $spacing-base;
+
+  textarea {
+    font-family: $font-family-base;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: flex-end;
+
+    button + button {
+      margin-left: $spacing-base / 4;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@import './variables';
+
+.todo-item {
+  .date {
+    font-weight: normal;
+  }
+
+  .title {
+    margin-bottom: $spacing-text;
+  }
+
+  .description {
+    color: $gray-medium;
+  }
+
+  @media only screen and (min-width: $screen-md-max) {
+    &.item > .content > .header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .date {
+      margin-left: $spacing-base;
+      white-space: nowrap;
+    }
+  }
+
+  @media only screen and (max-width: $screen-lg-min) {
+    .header p {
+      margin-bottom: $spacing-text;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import './variables';
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: $spacing-base 0;
+
+  .header {
+    text-align: center;
+    width: 100%;
+  }
+
+  .toolbar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    button {
+      white-space: nowrap;
+    }
+  }
+}
+
+@media only screen and (max-width: $screen-sm-max) {
+  .page-header .header-data span {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: $screen-md-min) {
+  .page-header .header-data {
+    span {
+      display: inline-block;
+      white-space: nowrap;
+
+      + span::before {
+        content: '|';
+        margin: 0 $spacing-text;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './NewItem.css';
+import './NewItem.scss';
 
 // new item input form component
 class NewItem extends React.Component {

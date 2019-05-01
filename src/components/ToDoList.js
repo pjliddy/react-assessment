@@ -1,6 +1,6 @@
 import React from 'react';
 import ToDoItem from './ToDoItem';
-import './ToDoList.css';
+import './ToDoList.scss';
 
 // toDo list functional component
 const ToDoList = ({ items, onToggleItem, onDeleteItem }) => {
