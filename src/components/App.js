@@ -10,7 +10,7 @@ class App extends React.Component {
   state = {
     items: [],
     numItems: 0,
-    numChecked: 0,
+    numUnchecked: 0,
     showItemForm: false
   };
 
@@ -29,7 +29,8 @@ class App extends React.Component {
     this.setState({
       items: [...this.state.items, item],
       showItemForm: false,
-      numItems: this.state.numItems + 1
+      numItems: this.state.numItems + 1,
+      numUnchecked: this.state.numUnchecked + 1
     });
   }
 
@@ -38,7 +39,7 @@ class App extends React.Component {
     this.setState({
       items: this.state.items.filter(i => i !== item),
       numItems: this.state.numItems - 1,
-      numChecked: this.state.numChecked + (item.checked ? -1 : 0)
+      numUnchecked: this.state.numUnchecked + (item.checked ? 0 : -1)
     });
   }
 
@@ -48,11 +49,11 @@ class App extends React.Component {
     const copy = Object.assign({}, item);
     copy.checked = !copy.checked;
 
-    // replace item object and update numChecked in state
+    // replace item object and update numUnchecked in state
     this.setState(state => {
       return {
         items: state.items.map(e => e === item ? copy : e),
-        numChecked: this.state.numChecked + (!copy.checked ? -1 : 1)
+        numUnchecked: this.state.numUnchecked + (copy.checked ? -1 : 1)
       };
     });
   }
@@ -62,7 +63,7 @@ class App extends React.Component {
       <div className="ui container text">
         <PageHeader
           numItems={this.state.numItems}
-          numChecked={this.state.numChecked}
+          numUnchecked={this.state.numUnchecked}
           showItemForm={this.state.showItemForm}
           onShowItemForm={this.onShowItemForm}
         />
@@ -70,7 +71,6 @@ class App extends React.Component {
         {/* conditionally display NewItem form based on showItemForm */}
         {this.state.showItemForm &&
           <NewItem
-            isVisible={this.state.showItemForm}
             onSubmit={this.onCreateItem}
             onCancel={this.onCloseItemForm}
           />

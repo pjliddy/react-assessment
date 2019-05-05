@@ -1,7 +1,7 @@
 import React from 'react';
 import './ToDoItem.scss';
 
-// individual to do item component
+// individual toDo item component
 class ToDoItem extends React.Component {
   // execute callback when checkbox is clicked
   toggleCheck = () => {
@@ -14,8 +14,9 @@ class ToDoItem extends React.Component {
   }
 
   render(){
-    // destructor properties for item in props
+    // destructure properties for item in props
     const { title, description, date, checked } = this.props.item;
+    
     // conditionally define checkbox classes based on whether item is checked
     const checkClasses = `icon large link square outline ${!checked ? '' : 'check'}`;
 

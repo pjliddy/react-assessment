@@ -12,7 +12,7 @@ class NewItem extends React.Component {
     isValid: true
   };
 
-  // event handler for cancel button on form
+  // event handler for cancel button on form executes onCancel callback
   onFormCancel = (event) => {
     event.preventDefault();
     this.props.onCancel();
@@ -58,7 +58,7 @@ class NewItem extends React.Component {
 
   render() {
     // conditionally define message classes based on whether form is valid
-    const msgClasses = `ui icon warning message ${!this.state.isValid ? '' : 'hidden' }`;
+    const msgClasses = `ui icon error message ${!this.state.isValid ? '' : 'hidden' }`;
 
     return (
       <div className="new-item">
@@ -69,7 +69,7 @@ class NewItem extends React.Component {
 
             <div className="fields">
               <div className="eleven wide field">
-                <label htmlFor="title">Item Title</label>
+                <label htmlFor="title">Item Title <span className="required">(required)</span></label>
                 <input
                   type="text"
                   id="title"

@@ -2,7 +2,7 @@ import React from 'react';
 import './PageHeader.scss';
 
 // page header functional component
-const Header = ({ onShowItemForm, numItems, numChecked, showItemForm }) => {
+const Header = ({ onShowItemForm, numItems, numUnchecked, showItemForm }) => {
   // conditionally define button classes based on whether itemForm is visible
   const buttonClasses = `ui primary button ${!showItemForm ? '' : 'disabled'}`;
 
@@ -15,7 +15,7 @@ const Header = ({ onShowItemForm, numItems, numChecked, showItemForm }) => {
               <span className="header-data-label">Total Items: </span>{numItems}
             </div>
             <div className='header-data-item'>
-              <span className="header-data-label">Items Left To Do: </span>{numChecked}
+              <span className="header-data-label">Items Left To Do: </span>{numUnchecked}
             </div>
         </div>
         <button className={buttonClasses} onClick={onShowItemForm}>

@@ -3,6 +3,11 @@
 .new-item {
   margin-bottom: $spacing-base;
 
+  .required {
+    color: $gray-medium;
+    font-weight: normal;
+  }
+
   textarea {
     font-family: $font-family-base;
   }
